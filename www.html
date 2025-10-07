@@ -1,0 +1,74 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+body{ display: grid; place-items: center; height: 50vh; background-color: indianred;}
+
+}
+input,select,button{margin: 5px;padding:8px;}
+p{color:BLACK;}
+button{
+background-color: white;
+color:red;}
+</style>
+</head>
+<body>
+<h1>CALCULATOR</h1><br>
+<label><b>Enter first Number</b></label><br>
+<input type="number" id="num1" placeholder="Enter first number"><br><br>
+<label><b>Enter Second Number</b></label><br>
+<input type="number" id="num2" placeholder="Enter Second number"><br><br>
+<label for="operoter"><b>Choose an Operator</b></label>
+<select  name= "operator" id="operator">
+<option value="+"> + </option>
+<option value="-"> - </option>
+<option value="*"> * </option>
+<option value="/"> / </option>
+</select>
+<button onclick="calculate()"> = </button>
+<p id="result"></p>
+
+<script>
+function add(a,b)
+
+{return a + b;}
+
+function sub(a,b)
+
+{return a - b;}
+
+function mul(a,b)
+
+    {return a * b;}
+function div(a,b)
+   
+    {return b !== 0 ? a / b:"Cannot divide by zero"}
+   
+
+function calculate() {
+    const num1=parseFloat(document.getElementById('num1').value);
+    const num2=parseFloat(document.getElementById("num2").value);
+    const operator=document.getElementById("operator").value;
+
+let result;
+
+if(isNaN(num1)|| isNaN(num2))
+{
+result="please enter valid numbers.";
+}else
+{
+switch(operator)
+{
+case'+': result = add(num1,num2);break;
+case'-': result = sub(num1,num2);break;
+case'*': result = mul(num1,num2);break;
+case'/': result = div(num1,num2);break;
+}
+}
+document.getElementById("result").innerText="Result:"+ result;
+}
+</script>
+</body>
+</html>
